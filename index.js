@@ -13,13 +13,18 @@ app.use(
 // Endpoint to handle query parameters for the Victoria and Albert Museum API
 
 app.get("/vam-api/search", async (req, res) => {
+  console.log(req.query);
   const queryParams = new URLSearchParams(req.query).toString();
-  const url = `https://api.vam.ac.uk/v2/objects/search?${queryParams}`;
+  console.log(queryParams);
+  const url = `https://api.vam.ac.uk/v2/objects/search?${encodeURI(
+    queryParams
+  )}`;
   console.log(url);
   try {
     const response = await axios.get(
       `https://api.vam.ac.uk/v2/objects/search?${queryParams}`
     );
+
     //response.data has two keys - info and records
     res.json(response.data);
   } catch (error) {
