@@ -21,7 +21,7 @@ app.get("/vam-api/search", async (req, res) => {
       `https://api.vam.ac.uk/v2/objects/search?${queryParams}`
     );
     //response.data has two keys - info and records
-    res.json(response.records);
+    res.json(response.data);
   } catch (error) {
     res
       .status(500)
