@@ -14,13 +14,14 @@ app.use(
 
 app.get("/vam-api/search", async (req, res) => {
   const queryParams = new URLSearchParams(req.query).toString();
-  const url = `https://www.vam.ac.uk/api/json/museumobject/search?${queryParams}`;
+  const url = `https://api.vam.ac.uk/v2/objects/search?${queryParams}`;
   console.log(url);
   try {
     const response = await axios.get(
-      `https://www.vam.ac.uk/api/json/museumobject/search?${queryParams}`
+      `https://api.vam.ac.uk/v2/objects/search?${queryParams}`
     );
     //response.data has two keys - info and data
+    console.log(response);
     res.json(response.data);
   } catch (error) {
     res
