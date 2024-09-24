@@ -20,9 +20,8 @@ app.get("/vam-api/search", async (req, res) => {
     const response = await axios.get(
       `https://api.vam.ac.uk/v2/objects/search?${queryParams}`
     );
-    //response.data has two keys - info and data
-    console.log(response);
-    res.json(response.data);
+    //response.data has two keys - info and records
+    res.json(response.records);
   } catch (error) {
     res
       .status(500)
