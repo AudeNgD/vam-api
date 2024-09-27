@@ -39,6 +39,24 @@ app.get("/search", async (req, res) => {
   }
 });
 
+// Endpoint to handle the object ID for the Victoria and Albert Museum API
+app.get("/object/:objectId", async (req, res) => {
+  const { objectId } = req.params;
+  try {
+    const response = await axios.get(
+      `https://api.vam.ac.uk/v2/museumobject/${objectId}`
+    );
+    res.json(response.data);
+  } catch (error) {
+    res
+      .status(500)
+      .send(
+        "Internal server error: " +
+          (error.response ? error.response.data : error.message)
+      );
+  }
+});
+
 const PORT = 8080;
 
 app.listen(PORT, () => {
