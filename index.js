@@ -10,10 +10,15 @@ app.use(
     setHeaders: (res, path, stat) => {
       res.set("Access-Control-Allow-Origin", "*");
       res.set("Access-Control-Allow-Methods", "GET");
-      res.set("Access-Control-Allow-Headers", "Content-Type");
+      res.set(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
     },
   })
 );
+
+app.use(express.json());
 
 // Endpoint to handle query parameters for the Victoria and Albert Museum API
 
