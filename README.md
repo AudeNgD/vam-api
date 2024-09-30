@@ -4,7 +4,7 @@
 This is the proxy server set up to access the V&A API used by curatorly 'https://github.com/AudeNgD/curatorly'.
 
 ## Instructions
-1. Fork and clone the repo `git clone https://github.com/AudeNgD/curatorly`
+1. Fork and clone the repo `git clone https://github.com/AudeNgD/vam-api`
 2. In the repo run `npm i`
 3. Run this server locally by running `npm start`
 
